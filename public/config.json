@@ -1,6 +1,0 @@
-{
-    "server": "https://macarte-qualif.ign.fr/",
-    "viewer": "https://ignf.gitlab.io/macarte/mcviewer/?map=$ID&$NOTITLE",
-    "userProfile": "https://macarte-qualif.ign.fr/utilisateur/$NAME"
-}
-  
