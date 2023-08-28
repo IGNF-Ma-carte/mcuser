@@ -1,0 +1,38 @@
+#page-medias .used-space{
+    float:right;
+}
+
+#page-medias .used-space .progress-bar-border{
+    border: 1px solid;
+}
+
+#page-medias .used-space .progress-bar-border .progress-bar-fill{
+    height:24px;
+    background-color: #3993f3;
+}
+
+#page-medias li.mc-select .li-actions,
+#page-medias li:hover .li-actions0 {
+    display: block;
+    z-index: 1;
+}
+
+#page-medias li .li-actions {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
+    display: none;
+    border-radius: 0 0 1em 1em;
+    padding: 0 .5em;
+    color: #788089;
+}
+#page-medias li .li-actions span {
+    padding: 0 .5em;
+    font-weight: bold;
+}
+#page-medias li .li-actions span:hover {
+    color: #307ccd;
+}

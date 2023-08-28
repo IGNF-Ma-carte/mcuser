@@ -1,0 +1,23 @@
+[data-show="accueil"] #page-accueil{
+    padding-bottom: 20vh;
+}
+[data-show="accueil"] article{
+    cursor: pointer;
+    padding-bottom: 2em;
+    padding-bottom: 10em;
+}
+
+[data-show="accueil"] [data-ref="cartes"] article{
+    background-color: #3993f3;
+    color: white!important;
+}
+
+[data-show="accueil"] article a.article{
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+}
+
+[data-show="accueil"] [data-ref="cartes"] article a.article{
+    color: white!important;
+}

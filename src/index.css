@@ -1,0 +1,63 @@
+[data-role="content"] .connected{
+    display:none;
+}
+[data-connected] [data-role="content"] .connected{
+    display:block;
+}
+[data-connected] [data-role="content"] .disconnected{
+    display:none;
+}
+
+[data-role="content"] .page{
+    max-width: 130rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+[data-role="content"] .connected .page{
+    display:none;
+}
+[data-show="accueil"] [data-role="content"] .connected .page#page-accueil{
+    display:block;
+}
+
+[data-show="profil"] [data-role="content"] .connected .page#page-profil{
+    display:block;
+}
+[data-show="profil-public"] [data-role="content"] .connected .page#page-public-profile{
+    display:block;
+}
+
+/* [data-show="profil"][data-mode="edit-profile"] .connected .page#page-edit-profile{
+    display:block;
+} */
+
+[data-show="cartes"] [data-role="content"] .connected .page#page-cartes{
+    display:block;
+}
+[data-show="cartes"][data-mode="maps-detail"] .connected .page#page-maps-detail{
+    display:block;
+}
+[data-show="cartes"][data-mode="maps-detail"] .connected .page#page-cartes{
+    display:none;
+}
+
+[data-show="medias"] [data-role="content"] .connected .page#page-medias{
+    display:block;
+}
+
+.hide{
+    display: none!important;
+}
+.errors{
+    color:red;
+}
+
+/* les dialogues générés pour le md doivent être devant le dialog -> z-index = 1000 */
+body > .ol-ext-dialog.fullMD{
+    /* dialogue saisie md */
+    z-index: 1001!important;
+}
+body > .ol-ext-dialog.help{
+    /* dialogue aide md */
+    z-index: 1002;
+}

@@ -1,0 +1,67 @@
+.ol-ext-dialog.edit-share form .label {
+    display: block;
+    color: #788089;
+    font-weight: bold;
+}
+.ol-ext-dialog.edit-theme form select {
+    width: 100%;
+}
+
+#page-cartes .create-map{
+    float:right;
+    margin-bottom: 2rem;
+}
+
+/*************************************************/
+/* mise en page boutons actions multiples cartes */
+/*************************************************/
+#page-cartes .map-result {
+    clear: both;
+}
+#page-cartes .map-result .actions label span {
+    margin-right: 0;
+}
+#page-cartes .map-result .actions label div {
+    min-width: 2em;
+    text-align: right;
+    display: inline-block;
+}
+
+#page-cartes .map-result .actions{
+    font-weight: bold;
+    color: #788089;
+    padding: 1em 0;
+}
+#page-cartes .map-result .actions > span{
+    margin-right: 2rem;
+}
+#page-cartes .map-result .actions > span:hover{
+    color: #3993f3;
+}
+
+#page-cartes li.mc-select .li-actions,
+#page-cartes li:hover .li-actions0 {
+    display: block;
+    z-index: 1;
+}
+
+#page-cartes li .li-actions {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
+    display: none;
+    border-radius: 0 0 1em 1em;
+    padding: 0 .5em;
+    color: #788089;
+}
+#page-cartes li .li-actions span {
+    padding: 0 .5em;
+    font-weight: bold;
+}
+#page-cartes li .li-actions span:hover {
+    color: #307ccd;
+}
+
