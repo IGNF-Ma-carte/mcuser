@@ -1,6 +1,12 @@
 # mcuser
 *Macarte user board*
 
+![](https://img.shields.io/github/v/release/IGNF-Ma-carte/mcuser)
+![](https://img.shields.io/github/stars/IGNF-Ma-carte/mcuser)
+![](https://img.shields.io/github/commit-activity/m/IGNF-Ma-carte/mcuser)
+![](https://img.shields.io/github/contributors/IGNF-Ma-carte/mcuser)
+![](https://img.shields.io/github/license/IGNF-Ma-carte/mcuser)
+
 Interface du compte utilisateur dans Ma carte.
 
 ## Installation et développement
