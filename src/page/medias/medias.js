@@ -196,9 +196,9 @@ ol_ext_element.create('BUTTON', {
     parent: listHeader
 });
   
-list.search();
+// list.search();
 
-api.on(['me', 'logout'], (e) => {
-    list.search();
+api.on('me', () => {
+    // list.search();
     list.updateFolders();
 })

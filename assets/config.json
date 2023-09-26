@@ -1,5 +1,5 @@
 {
-    "server": "https://macarte-qualif.ign.fr/",
+    "server": "https://qlf-macarte.ign.fr/",
     "viewer": "https://ignf.gitlab.io/macarte/mcviewer/?map=$ID&$NOTITLE",
     "userProfile": "https://macarte-qualif.ign.fr/utilisateur/$NAME"
 }

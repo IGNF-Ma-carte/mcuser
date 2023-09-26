@@ -1,17 +1,20 @@
 // import './localhostapi' ;
 import './mcversion'
-import api from  'mcutils/api/api';
-import charte from  'mcutils/charte/macarte';
-import {connectDialog} from 'mcutils/charte/macarte';
 import config from 'mcutils/config/config';
+import charte from  'mcutils/charte/macarte';
+import api from  'mcutils/api/api';
+import {connectDialog} from 'mcutils/charte/macarte';
 import 'mcutils/fonts/font-awesome.min.css';
 
-import './index.css';
 import './page/home/home.js';
 import './page/maps/maps.js';
 import './page/medias/medias.js';
 import './page/profile/profile.js';
 import './page/mapDetails/mapDetails.js';
+
+import './index.css';
+
+charte.setApp('compte', 'Ma carte');
 
 function setPage(){
     // les pages affichées sont en fonction des # (ex : macarte.ign.fr/moncompte/#mescartes)
@@ -38,18 +41,11 @@ document.querySelectorAll(".breadcrumb .link-macarte").forEach( (a) => {
     a.setAttribute('href', config.server);
 })
 
-window.charte = charte;
-charte.setApp('compte', 'Ma carte');
 setPage();
 charte.setInputPlaceholder();
 
 // Listen to menu / title click
-charte.on(['header:menu', 'header:mega', 'header:title'], console.log);
-charte.on(['header:list'], console.log);
-charte.on(['menu:list'], console.log);
-
-
-if(!api.isConnected()){
+if (!api.isConnected()) {
     connectDialog( 
         (e) => {
             document.body.dataset.connected = "";
@@ -57,8 +53,6 @@ if(!api.isConnected()){
     )
 }
 
-
-api.on('logout', (e) => {
-    delete document.body.dataset.connected;
-})
-
+/* DEBUG */
+window.charte = charte;
+window.api = api

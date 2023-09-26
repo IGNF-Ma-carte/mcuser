@@ -6,12 +6,14 @@ import { getMapDetails } from '../mapDetails/mapDetails';
 import dialog from 'mcutils/dialog/dialog';
 import serviceURL from 'mcutils/api/serviceURL';
 
-const mapsElt = document.getElementById('page-cartes');
 import mapsHtml from './maps.html';
-mapsElt.innerHTML = mapsHtml;
-import './maps.css';
 import actionsHtml from './actions.html';
 import createMapHtml from './create-map.html';
+
+import './maps.css';
+
+const mapsElt = document.getElementById('page-cartes');
+mapsElt.innerHTML = mapsHtml;
 
 const list = new ListCarte(api, {
     context: 'profile',
@@ -22,7 +24,7 @@ const list = new ListCarte(api, {
 });
 
 // lance la recherche à la connexion/deconnexion
-api.on(['me', 'logout'], (e) => {
+api.on('me', () => {
     list.search();
 })
 
