@@ -1,7 +1,7 @@
 {
   "name": "mcuser",
-  "version": "4.1.1",
-  "description": "gestion du compte utilisateur",
+  "version": "4.1.2",
+  "description": "Gestion du compte utilisateur",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
