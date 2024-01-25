@@ -1,4 +1,4 @@
-import homeHtml from './home.html';
+import homeHtml from './home-page.html';
 import './home.css';
 
 

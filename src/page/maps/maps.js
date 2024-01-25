@@ -6,9 +6,9 @@ import { getMapDetails } from '../mapDetails/mapDetails';
 import dialog from 'mcutils/dialog/dialog';
 import serviceURL from 'mcutils/api/serviceURL';
 
-import mapsHtml from './maps.html';
-import actionsHtml from './actions.html';
-import createMapHtml from './create-map.html';
+import mapsHtml from './maps-page.html';
+import actionsHtml from './actions-page.html';
+import createMapHtml from './create-map-page.html';
 
 import './maps.css';
 

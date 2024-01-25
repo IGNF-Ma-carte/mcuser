@@ -6,9 +6,10 @@ import { addMediaDialog, updateMediaDialog } from 'mcutils/dialog/openMedia';
 import dialogMessage from 'mcutils/dialog/dialogMessage';
 import dialog from 'mcutils/dialog/dialog';
 
-import mediasHtml from './medias.html';
-document.getElementById('page-medias').innerHTML = mediasHtml;
+import mediasHtml from './medias-page.html';
 import './medias.css'
+
+document.getElementById('page-medias').innerHTML = mediasHtml;
 
 const mediasElt = document.getElementById('page-medias');
 mediasElt.innerHTML = mediasHtml;

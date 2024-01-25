@@ -5,9 +5,10 @@ import saveCarte from 'mcutils/dialog/saveCarte'
 import dialog from 'mcutils/dialog/dialog';
 import shareCarte from 'mcutils/dialog/shareCarte';
 
-import mapDetailsHtml from './mapDetails.html';
-import './mapDetails.scss';
 import { listSearch } from '../maps/maps.js';
+
+import mapDetailsHtml from './mapDetails-page.html';
+import './mapDetails.scss';
 
 const mapDetailsElt = document.getElementById('page-maps-detail');
 mapDetailsElt.innerHTML = mapDetailsHtml;

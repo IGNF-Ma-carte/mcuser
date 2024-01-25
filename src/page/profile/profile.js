@@ -7,15 +7,17 @@ import MDEditor from 'mcutils/md/MDEditor';
 import _T from 'mcutils/i18n/i18n';
 import { getUserURL, encodeTitleURL } from 'mcutils/api/serviceURL';
 
-import profileHtml from './profile.html';
-import editProfileHtml from './edit-profile.html';
-import editPasswordHtml from './edit-password.html';
-import editPublicHtml from './edit-public.html';
-import './profile.css';
 import charte from 'mcutils/charte/charte';
 import * as coverDefaultUrl from '../../../img/default_cover.png';
 import * as profileDefaultUrl from '../../../img/default_user.png';
 import serviceURL from 'mcutils/api/serviceURL';
+
+import profileHtml from './profile-page.html';
+import editProfileHtml from './edit-profile-page.html';
+import editPasswordHtml from './edit-password-page.html';
+import editPublicHtml from './edit-public-page.html';
+import './profile.css';
+
 let profileDiv = document.querySelector('#page-profil');
 profileDiv.innerHTML = profileHtml;
 
