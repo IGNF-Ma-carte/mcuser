@@ -7,9 +7,9 @@ import './home.css';
 const home = document.getElementById('page-accueil');
 home.innerHTML = homeHtml;
 
-// Organizations
-const orgaLink = home.querySelector('[data-ref="organisations"] a')
-orgaLink.href = serviceURL.mesorganizations
+// Equipe
+const teamLink = home.querySelector('[data-ref="equipes"] a')
+teamLink.href = serviceURL.mesequipes
 
 // Click on blocks
 home.querySelectorAll('[data-role="teaser-2"] > div').forEach((div) => {
