@@ -17,6 +17,7 @@ mapsElt.innerHTML = mapsHtml;
 
 const list = new ListCarte(api, {
     context: 'profile',
+    organization: 'out',
     search: true,
     selection: true,
     check: true,
