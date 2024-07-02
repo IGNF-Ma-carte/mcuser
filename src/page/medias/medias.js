@@ -31,6 +31,7 @@ const list = new ListMedias(api, {
     search: true,
     check: true,
     limit: true,
+    team: false,
     target: mediasElt.querySelector('.result-medias')
 });
 
@@ -86,6 +87,7 @@ ol_ext_element.create('BUTTON', {
     html: '<i class="fa fa-plus-circle fa-fw"></i> Ajouter un média',
     click: () => {
         addMediaDialog({
+            team: false,
             callback: (e) => {
                 mediaSize += e.item.size;
                 updateProgressBar(mediaSize, mediaSizeLimit);
