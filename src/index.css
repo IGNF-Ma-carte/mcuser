@@ -4,8 +4,22 @@
 [data-connected] [data-role="content"] .connected{
     display:block;
 }
-[data-connected] [data-role="content"] .disconnected{
+[data-connected] [data-role="content"] .disconnected {
     display:none;
+}
+[data-role="content"] .disconnected {
+    max-width: 130rem;
+    padding: 0 2rem;
+    margin: auto;
+    box-sizing: border-box;
+}
+[data-role="content"] .disconnected button {
+    margin: 0 2.5em 2em;
+    opacity: 0;
+    transition: 10s opacity 0;
+}
+[data-role="content"] .disconnected button.active {
+    opacity: 1;
 }
 
 [data-role="content"] .page{

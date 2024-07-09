@@ -44,14 +44,18 @@ document.querySelectorAll(".breadcrumb .link-macarte").forEach( (a) => {
 setPage();
 charte.setInputPlaceholder();
 
-// Listen to menu / title click
+// Not connected
 if (!api.isConnected()) {
-    connectDialog( 
-        (e) => {
-            document.body.dataset.connected = "";
-        } 
-    )
+    connectDialog()
 }
+// Display connection button
+setTimeout(() => {
+    const bt = document.querySelector('[data-role="content"] .disconnected .connect')
+    bt.classList.add('active');
+    bt.addEventListener('click', () => {
+        connectDialog();
+    })
+}, 1000)
 
 /* DEBUG */
 window.charte = charte;

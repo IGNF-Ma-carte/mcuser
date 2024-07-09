@@ -93,9 +93,9 @@ ol_ext_element.create('BUTTON', {
                 updateProgressBar(mediaSize, mediaSizeLimit);
 
                 list.updateFolders();
-                if(list.get('folder') === e.item.folder){
+                if (list.get('folder') === e.item.folder){
                     list.showPage();
-                }else{
+                } else {
                     list.setFolder(e.item.folder);
                 }
             }
