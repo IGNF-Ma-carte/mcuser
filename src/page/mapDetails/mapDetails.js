@@ -41,7 +41,7 @@ mapDetailsElt.querySelector('.actions button.edit').addEventListener('click', (e
             displayMap(response);
             dialog.show({
                 content: "Les modifications ont été enregistrées",
-                buttons: {close: "OK"},
+                buttons: { close: "OK" },
                 closeOnSubmit: true,
                 autoclose: 2000,
             });
@@ -83,7 +83,7 @@ mapDetailsElt.querySelector('button.new-id_edit').addEventListener('click', (e) 
 });
 
 mapDetailsElt.querySelector('[data-attr="share"]').addEventListener('click', evt => {
-    const share = evt.target.checked ? 'atlas' : 'private';
+    const share = evt.target.checked ? 'atlas' : 'public';
 
     api.updateMap(map.edit_id, {share : share}, (response) => {
         let msg = '';
@@ -93,7 +93,7 @@ mapDetailsElt.querySelector('[data-attr="share"]').addEventListener('click', evt
             msg = 'Une erreur est survenue';
         }else{
             map = response;
-            if(map.share == 'private'){
+            if(map.share == 'public'){
                 msg = "la carte est retirée de l'atlas";
             }else{
                 msg = "la carte est ajoutée dans l'atlas";
@@ -154,7 +154,7 @@ function displayMap(map){
                 break;
             case 'share':
                 elt.checked = true;
-                if(map.share == 'private'){
+                if(map.share !== 'atlas'){
                     elt.checked = false;
                 }
                 break
