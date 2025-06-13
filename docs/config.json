@@ -1,5 +1,6 @@
 {
-    "server": "https://qlf-macarte.ign.fr/",
+    "server": "https://127.0.0.1:8000/",
+    "server-qlf": "https://qlf-macarte.ign.fr/",
     "server-1": "https://macarte.mut-dev.ign.fr/",
     "server-2": "https://localhost.ign.fr/macartegpf-api/",
     "viewer": "https://ignf-ma-carte.github.io/mcviewer/?map=$ID&$NOTITLE",
