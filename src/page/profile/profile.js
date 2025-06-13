@@ -119,7 +119,7 @@ function treatApiErrorDeleteForm(response, form) {
     removeErrors(form);
 
     switch (response.status) {
-        case 4041:
+        case 401:
             // Utilisateur déconnecté
             let openProfile = () => {
                 dialog.close();
