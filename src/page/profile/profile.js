@@ -67,21 +67,23 @@ profileDiv.querySelector('.delete-profile').addEventListener('click', (e) => {
                                 // Enlève le token de connection
                                 api.setToken();
                                 let openHome = () => { window.open(serviceURL.home, '_self') }
-                                // Renvoie à la page d'accueil
-                                dialog.show({
-                                    className: 'message',
-                                    content: "Votre compte a été suspendu.\nVous allez retourner à la page d'accueil.",
-                                    buttons: { cancel: _T('Ok') },
-                                    onButton: openHome
+                                api.logout(() => {
+                                    // Renvoie à la page d'accueil
+                                    dialog.show({
+                                        className: 'message',
+                                        content: "Votre compte a été suspendu.\nVous allez retourner à la page d'accueil.",
+                                        buttons: { cancel: _T('Ok') },
+                                        onButton: openHome
+                                    })
+                                    document.addEventListener('keydown', function (e) {
+                                        if (e.key === 'Escape' || e.key === 'Enter') {
+                                            openHome();
+                                            e.preventDefault();
+                                        }
+                                    })
+                                    // Renvoie dans tous les cas à l'accueil 3 secondes après
+                                    setTimeout(() => { openHome() }, 3000)
                                 })
-                                document.addEventListener('keydown', function (e) {
-                                    if (e.key === 'Escape' || e.key === 'Enter') {
-                                        openHome();
-                                        e.preventDefault();
-                                    }
-                                })
-                                // Renvoie dans tous les cas à l'accueil 3 secondes après
-                                setTimeout(() => { openHome() }, 3000)
                             }
                         })
                     }
