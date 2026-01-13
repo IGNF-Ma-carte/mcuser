@@ -8,11 +8,13 @@ import _T from 'mcutils/i18n/i18n';
 import { getUserURL, encodeTitleURL } from 'mcutils/api/serviceURL';
 
 import charte from 'mcutils/charte/charte';
+import { connectDialog } from 'mcutils/charte/macarte';
 import * as coverDefaultUrl from '../../../img/default_cover.png';
 import * as profileDefaultUrl from '../../../img/default_user.png';
 import serviceURL from 'mcutils/api/serviceURL';
 
 import profileHtml from './profile-page.html';
+import deleteProfileHtml from './delete-profile-page.html';
 import editProfileHtml from './edit-profile-page.html';
 import editPasswordHtml from './edit-password-page.html';
 import editPublicHtml from './edit-public-page.html';
@@ -40,6 +42,111 @@ api.on('me', (e) => {
 
     displayUser(user, profileDiv);
 })
+
+/* ********************** */
+/*    Supprimer compte    */
+/* ********************** */
+
+profileDiv.querySelector('.delete-profile').addEventListener('click', (e) => {
+    dialog.show({
+        content: deleteProfileHtml,
+        title: 'Suppression du compte',
+        className: 'profile',
+        buttons: { submit: 'Confirmer', cancel: 'Annuler' },
+        onButton: (click, inputs) => {
+            switch (click) {
+                case 'submit':
+                    // refreshToken
+                    let form = dialog.getContentElement();
+                    let data = checkDeleteForm(form, inputs);
+                    if (data) {
+                        api.deleteMe(response => {
+                            if (response.error) {
+                                treatApiErrorDeleteForm(response, form);
+                            } else {
+                                // Enlève le token de connection
+                                api.setToken();
+                                let openHome = () => { window.open(serviceURL.home, '_self') }
+                                api.logout(() => {
+                                    // Renvoie à la page d'accueil
+                                    dialog.show({
+                                        className: 'message',
+                                        content: "Votre compte a été suspendu.\nVous allez retourner à la page d'accueil.",
+                                        buttons: { cancel: _T('Ok') },
+                                        onButton: openHome
+                                    })
+                                    document.addEventListener('keydown', function (e) {
+                                        if (e.key === 'Escape' || e.key === 'Enter') {
+                                            openHome();
+                                            e.preventDefault();
+                                        }
+                                    })
+                                    // Renvoie dans tous les cas à l'accueil 3 secondes après
+                                    setTimeout(() => { openHome() }, 3000)
+                                })
+                            }
+                        })
+                    }
+                case 'cancel':
+                    break;
+            }
+        },
+    });
+    charte.setInputPlaceholder(dialog.getContentElement());
+})
+
+function checkDeleteForm(form, inputs) {
+    removeErrors(form);
+    const data = {};
+    form.querySelectorAll('[data-attr]').forEach((input) => {
+        if (input.value) {
+            data[input.dataset.attr] = input.value;
+        }
+    });
+    let errorElt = form.querySelector('.error');
+
+    if (!('confirm_delete' in data) || (('confirm_delete' in data) && data.confirm_delete !== 'SUPPRIMER')) {
+        // L'utilisateur doit rentrer 'SUPPRIMER' en toute lettre sinon ce n'est pas valide
+        inputs.confirm_delete.classList.add('invalid');
+        inputs.confirm_delete.focus();
+        errorElt.classList.remove('hide');
+        errorElt.innerText = 'Veuillez écrire "SUPPRIMER" en toute lettre avant de supprimer votre compte';
+        return null;
+    }
+
+    return data;
+}
+
+function treatApiErrorDeleteForm(response, form) {
+    removeErrors(form);
+
+    switch (response.status) {
+        case 401:
+            // Utilisateur déconnecté
+            let openProfile = () => {
+                dialog.close();
+                connectDialog();
+            };
+            // Renvoie à la page d'accueil
+            dialog.show({
+                className: 'alert',
+                content: "Une erreur est survenue. Reconnectez-vous.",
+                buttons: { cancel: _T('Ok') },
+                onButton: openProfile
+            })
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    openProfile();
+                    e.preventDefault();
+                }
+            })
+            break;
+        default:
+            dialog.close();
+            break;
+    }
+
+}
 
 /* ********************* */
 /*    ID DE CONNEXION    */
