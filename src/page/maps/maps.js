@@ -108,7 +108,7 @@ list.on('draw:item', (e) => {
             });
         },
         parent: opt,
-        title : 'Charger la carte...',
+        title : 'Télécharger la carte',
     });
 
 });

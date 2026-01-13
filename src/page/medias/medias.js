@@ -71,7 +71,7 @@ list.on('draw:item', (e) => {
             FileSaver.saveAs(e.item.view_url, e.item.fileName);
         },
         parent: e.element.querySelector('.mc-date'),
-        title : 'Charger le média',
+        title : 'Télécharger l\'image',
     });
 
     const opt = ol_ext_element.create('DIV', {
