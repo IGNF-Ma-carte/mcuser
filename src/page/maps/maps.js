@@ -101,7 +101,6 @@ list.on('draw:item', (e) => {
             notification.show('Sauvegare en cours...');
             api.getMapFile(e.item.view_id, (data) => {
                 const name = (e.item.view_id || 'carte') + '.' + (e.item.type === 'macarte' ? 'carte' : 'story');
-                console.log(data)
                 data = JSON.stringify(data);
                 var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
                 FileSaver.saveAs(blob, name);
