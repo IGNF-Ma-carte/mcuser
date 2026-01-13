@@ -43,7 +43,7 @@ const list = new ListMedias(api, {
 function updateProgressBar(current, max){
     const elt = mediasElt.querySelector('.used-space');
     elt.querySelector('[data-attr="medias_size"').innerText = Math.round(current*100/1024/1024)/100;
-    elt.querySelector('[data-attr="medias_size_limit"').innerText = Math.round(max*100/1024/1024)/100;;
+    elt.querySelector('[data-attr="medias_size_limit"').innerText = Math.round(max*100/1024/1024)/100;
     elt.querySelector('.progress-bar-fill').style.width = (current / max)*100 + "%";
 }
 
@@ -60,7 +60,19 @@ list.on(['check', 'draw:list'], () => {
   }
 });
 
+/** Item menu
+ */
 list.on('draw:item', (e) => {
+    // Download image
+    ol_ext_element.create('A', {
+        html: '<i class="fi-import"></i>',
+        download: 'image',
+        target: '_new',
+        href: e.item.view_url,
+        parent: e.element.querySelector('.mc-date'),
+        title : 'Charger le média',
+    });
+
     const opt = ol_ext_element.create('DIV', {
         parent: e.element,
         className: 'li-actions',
@@ -79,6 +91,18 @@ list.on('draw:item', (e) => {
         parent: opt,
         title : 'Modifier le média',
     });
+    /* import
+    ol_ext_element.create('A', {
+        html: '<i class="fi-import"></i>',
+        download: 'image',
+        target: '_new',
+        href: e.item.view_url,
+        parent: ol_ext_element.create('SPAN', {
+            parent: opt,
+        }),
+        title : 'Charger le média',
+    });
+    */
 });
 
 // Bouton et action "ajouter un media"
