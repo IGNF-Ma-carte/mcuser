@@ -36,3 +36,22 @@
 #page-medias li .li-actions span:hover {
     color: #307ccd;
 }
+
+#page-medias li .mc-date a {
+    color: inherit;
+    font-size: 1.4em;
+    margin: -0.2em 0;
+    margin-left: .2em;
+    display: inline-block;
+    padding: 0 0.4em;
+    border-radius: 5px;
+}
+#page-medias li .mc-date a:before,
+#page-medias li .mc-date a:after {
+    display: none;
+}
+#page-medias li .mc-date a:hover {
+    background-color: #b5b5b5;
+    color: #fff;
+}
+
