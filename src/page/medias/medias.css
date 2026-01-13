@@ -37,21 +37,21 @@
     color: #307ccd;
 }
 
-#page-medias li .mc-date a {
-    color: inherit;
+#page-medias li .mc-date button {
     font-size: 1.4em;
-    margin: -0.2em 0;
+    margin: -0.3em 0 -0.4em;
     margin-left: .2em;
     display: inline-block;
-    padding: 0 0.4em;
+    padding: 0.2em 0.4em;
     border-radius: 5px;
+    border: none;
+    background-color: transparent;
 }
 #page-medias li .mc-date a:before,
 #page-medias li .mc-date a:after {
     display: none;
 }
-#page-medias li .mc-date a:hover {
+#page-medias li .mc-date button:hover {
     background-color: #b5b5b5;
-    color: #fff;
 }
 

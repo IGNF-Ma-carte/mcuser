@@ -1,3 +1,4 @@
+import FileSaver from 'file-saver'
 import ListMedias from 'mcutils/api/ListMedias';
 import serviceURL from 'mcutils/api/serviceURL';
 import api from 'mcutils/api/api';
@@ -64,11 +65,11 @@ list.on(['check', 'draw:list'], () => {
  */
 list.on('draw:item', (e) => {
     // Download image
-    ol_ext_element.create('A', {
+    ol_ext_element.create('BUTTON', {
         html: '<i class="fi-import"></i>',
-        download: 'image',
-        target: '_new',
-        href: e.item.view_url,
+        click: () => {
+            FileSaver.saveAs(e.item.view_url, e.item.fileName);
+        },
         parent: e.element.querySelector('.mc-date'),
         title : 'Charger le média',
     });

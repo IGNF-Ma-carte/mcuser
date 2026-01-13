@@ -1,3 +1,5 @@
+import FileSaver from 'file-saver'
+
 import ListCarte from 'mcutils/api/ListCarte';
 import api from 'mcutils/api/api';
 import ol_ext_element from 'ol-ext/util/element';
@@ -5,6 +7,7 @@ import { getViewerURL, getEditorURL } from 'mcutils/api/serviceURL';
 import { getMapDetails } from '../mapDetails/mapDetails';
 import dialog from 'mcutils/dialog/dialog';
 import serviceURL from 'mcutils/api/serviceURL';
+import notification from 'mcutils/dialog/notification'
 
 import mapsHtml from './maps-page.html';
 import actionsHtml from './actions-page.html';
@@ -92,6 +95,23 @@ list.on('draw:item', (e) => {
         parent: opt,
         title : 'Voir les détails de la carte',
     });
+    ol_ext_element.create('SPAN', {
+        html: '<i class="fi-download"></i>',
+        click: () => {
+            notification.show('Sauvegare en cours...');
+            api.getMapFile(e.item.view_id, (data) => {
+                const name = (e.item.view_id || 'carte') + '.' + (e.item.type === 'macarte' ? 'carte' : 'story');
+                console.log(data)
+                data = JSON.stringify(data);
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                FileSaver.saveAs(blob, name);
+                notification.show('Carte sauvegardée...')
+            });
+        },
+        parent: opt,
+        title : 'Charger la carte...',
+    });
+
 });
 
 list.search();
